@@ -3,10 +3,13 @@ import sgMail from "@sendgrid/mail";
 
 const emailRegistro = async datos => {
     const { email, nombre, token } = datos
+
     sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+
     const msg = {
         to: email,
-        from: 'APV - Administrador de pacientes de veterinaria',
+        // from: 'APV - Administrador de pacientes de veterinaria',
+        from: '178n0088@itstb.edu.mx',
         subject: 'Comprueba tu cuenta en APV',
         text: 'Comprueba tu cuenta en APV',
         html: `
@@ -18,8 +21,9 @@ const emailRegistro = async datos => {
                 <p>Si tu no creaste esta cuenta, puedes ignorar este email</p>
             `
     }
-    sgMail
-        .send(msg)
+
+    //enviar email
+    sgMail.send(msg)
         .then(() => {
             console.log('Email sent')
         })
