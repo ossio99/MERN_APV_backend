@@ -9,15 +9,15 @@ const emailOlvidePassword = async datos => {
     const msg = {
         to: email,
         from: '178n0088@itstb.edu.mx',
-        subject: 'Comprueba tu cuenta en APV',
-        text: 'Comprueba tu cuenta en APV',
+        subject: 'Reestablece tu password',
+        text: 'Reestablece tu password',
         html: `
-                <p>Hola ${nombre}, comprueba tu cuenta en APV.</p>
-                <p>Tu cuenta ya esta lista, solo debes comprobarla en el siguiente enlace: 
-                    <a href="${process.env.FRONTEND_URL}/confirmar/${token}">Comprobar cuenta</a>
+                <p>Hola ${nombre}, has solicitado reestablecer tu password.</p>
+                <p>Da clic en el siguiente enlace para generar un nuevo password
+                    <a href="${process.env.FRONTEND_URL}/olvide-password/${token}">Reestablecer password</a>
                 </p>
     
-                <p>Si tu no creaste esta cuenta, puedes ignorar este email</p>
+                <p>Si tu no hiciste esta accion, puedes ignorar este email</p>
             `
     }
 
