@@ -41,6 +41,7 @@ const perfil = (req, res) => {
 
 const confirmar = async (req, res) => {
     const { token } = req.params
+    console.log('se ejecuto el controller');
     const usuarioConfirmar = await Veterinario.findOne({ token })
 
     if (!usuarioConfirmar) {
@@ -52,6 +53,7 @@ const confirmar = async (req, res) => {
         usuarioConfirmar.token = null;
         usuarioConfirmar.confirmado = true;
         await usuarioConfirmar.save();
+        console.log('controller exitoso');
 
         res.json({ msg: 'usuario confirmado correctamente' })
     } catch (error) {
